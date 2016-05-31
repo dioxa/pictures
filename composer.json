@@ -1,0 +1,7 @@
+{
+
+  "require": {
+    "silex/silex": "2.0.x-dev",
+    "mongodb/mongodb": "1.1.x-dev"
+  }
+}
