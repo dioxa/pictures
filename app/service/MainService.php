@@ -14,7 +14,7 @@ class MainService {
     
     function index() {
         $pictures = $this->pictureDao->getLastPictures(0, 20);
-        return $this->view->generate('Main.php', $pictures);
+        return $pictures;
     }
 
     function previewPicture($pictureId) {
