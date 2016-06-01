@@ -12,6 +12,14 @@ $app['mainService'] = function () use ($app) {
     return new MainService($app['pictureDao']);
 };
 
+$app['userDao'] = function() use ($app) {
+    return new UserDao($app['db']);
+};
+
+$app['loginService'] = function () use ($app) {
+    return new LoginService($app["userDao"]);
+};
+
 $app['db'] = function() {
     return (new \MongoDB\Client())->selectDatabase("kotya");
 };

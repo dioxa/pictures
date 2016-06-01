@@ -9,7 +9,7 @@ class PictureDao {
         $this->picturesCollection = $db->selectCollection("pictures");
     }
 
-    function getPictureById($id) {
+    function getById($id) {
         $picture = $this->picturesCollection->findOne(["id" => intval($id)]);
         return $picture;
     }
@@ -23,7 +23,7 @@ class PictureDao {
      * @param $to int по какую заапись, включительно.
      * @return array массив записей.
      */
-    function getLastPictures($from, $to) {
+    function getLast($from, $to) {
         $picturesNumber = ($to - $from) + 1;
 
         if ($picturesNumber <= 0) {
@@ -46,7 +46,7 @@ class PictureDao {
      * Сохраняет данные о картинке в БД.
      * @param $picture array готовый для вставки BSON документ.
      */
-    function savePicture($picture) {
+    function save($picture) {
         $picture["id"] = $this->generateNextId();
         $this->picturesCollection->insertOne($picture);
     }

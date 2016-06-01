@@ -13,12 +13,12 @@ class MainService {
     }
     
     function index() {
-        $pictures = $this->pictureDao->getLastPictures(0, 20);
+        $pictures = $this->pictureDao->getLast(0, 20);
         return $pictures;
     }
 
     function previewPicture($pictureId) {
-        $pictureData =  $this->pictureDao->getPictureById($pictureId);
+        $pictureData =  $this->pictureDao->getById($pictureId);
         if ($pictureData !== null) {
             //PLACEHOLDER
             return "FOUND";

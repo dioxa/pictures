@@ -1,9 +1,11 @@
 <?php
+
 class LoginService {
      
-    private $UserDAO;
+    private $userDao;
     
-    function __construct() {
+    function __construct(UserDao $userDao) {
+        $this->userDao = $userDao;
     }
     
     function index() {
