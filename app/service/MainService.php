@@ -1,14 +1,11 @@
 <?php
 require_once __DIR__."/../model/PictureDao.php";
-require_once __DIR__."/../view/View.php";
 
 class MainService {
-
-    private $view;
+    
     private $pictureDao;
     
     function __construct(PictureDao $pictureDao) {
-        $this->view = new View();
         $this->pictureDao = $pictureDao;
     }
     

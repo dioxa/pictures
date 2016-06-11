@@ -11,4 +11,15 @@ class LoginService {
     function index() {
         
     }
+
+    function auth($username, $pass) {
+        $user = $this->userDao->getByUsername($username);
+        if ($user !== null) {
+            $pass = hash('sha256', $pass);
+            if ($pass == $user["pass"]) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
